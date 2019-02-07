@@ -42,7 +42,7 @@ var library = {
 var printPlaylists = function(playlist) {
 
     for (var pId in playlist) {
-        console.log(`${pId}: ${playlist[pId].name} - ${playlist[pId].tracks.length} tracks`);
+        console.log( `${pId}: ${playlist[pId].name} - ${playlist[pId].tracks.length} tracks`);
     }
 
 }
@@ -129,10 +129,10 @@ var addTrack = function(name, artist, album) {
 
     library.tracks[newTrackId] = {}; // creates a new object for the new track
 
-    library.tracks[newTrackId].id = newTrackId;
-    library.tracks[newTrackId].name = name;
-    library.tracks[newTrackId].artist = artist;
-    library.tracks[newTrackId].album = album;
+    library.tracks[newTrackId].id = newTrackId; //creates a new key for ID
+    library.tracks[newTrackId].name = name; // creates a new key for name
+    library.tracks[newTrackId].artist = artist; // creates a new key for artist
+    library.tracks[newTrackId].album = album; // creates a new key for album
 
     console.log(library.tracks[newTrackId]);
 

@@ -39,6 +39,14 @@ var library = {
 
     },
 
+     printTracks: function(track) {
+
+        for (var tId in track) {
+            console.log('* Q02 *', `${tId}: ${track[tId].name}, by ${track[tId].artist} (${track[tId].album}) `)
+        }
+
+    },
+
     printPlaylist: function(playlistId) {
         let playlist = this.playlists[playlistId];
         let pName = playlist.name;
@@ -55,11 +63,14 @@ var library = {
         console.log(res);
     },
 
+
     addTrackToPlaylist: function(trackId, playlistId) {
 
-        var trackAdded = this.playlists[playlistId].tracks.push(trackId);
-        console.log(this.playlists[playlistId].tracks);
-        console.log(trackAdded + ' is the track added');
+        // var trackAdded = this.playlists[playlistId].tracks.push(trackId);
+        // console.log(this.playlists[playlistId].tracks);
+        // console.log(trackAdded + ' is the track added');
+
+        library.playlists[playlistId].tracks.push(trackId);
 
     },
 
@@ -75,14 +86,6 @@ var library = {
         this.tracks[newTrackId].album = album;
 
         console.log(this.tracks[newTrackId]);
-
-    },
-
-    printTracks: function(track) {
-
-        for (var tId in track) {
-            console.log('* Q02 *', `${tId}: ${track[tId].name}, by ${track[tId].artist} (${track[tId].album}) `)
-        }
 
     },
 
@@ -110,8 +113,22 @@ var uid = function() {
 }
 
 
-library.printPlaylists(library.playlists); //no parameters Sarah
+library.printPlaylists(library.playlists);
+
+library.printTracks(library.tracks);
 
 library.printPlaylist("p01");
 
-library.printTracks(library.tracks); //no parameters Sarah
+library.addTrackToPlaylist('t03', 'p01');
+
+library.addTrack('Live Forever', 'Oasis', 'Masterplan');
+
+library.addPlaylist('Running');
+
+
+
+
+
+
+
+
