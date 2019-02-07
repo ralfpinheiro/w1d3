@@ -1,4 +1,4 @@
-var lvar library = {
+var library = {
   tracks: { t01: { id: "t01",
                    name: "Code Monkey",
                    artist: "Jonathan Coulton",
@@ -37,7 +37,7 @@ var printPlaylists = function (playlist) {
 
 }
 
-// printPlaylists(library.playlists);
+printPlaylists(library.playlists);
 
 
 // *************************
@@ -114,7 +114,25 @@ console.log(printPlaylist("p01"));
 
 var addTrackToPlaylist = function (trackId, playlistId) {
 
+  var trackAdded = library.playlists[playlistId].tracks.push(trackId);
+  console.log(library.playlists[playlistId].tracks);
+  console.log(trackAdded + ' is the track added');
+
+
+  // let tId = library.tracks[trackId].id;
+  // let pId = library.playlists[playlistId].tracks;
+  // let res ='';
+
+  // for (trackId in playlistId) {
+  //   // console.log('id is here');
+  //   // console.log(pId);
+  // }
+
+
 }
+
+addTrackToPlaylist('t03', 'p01');
+
 
 //****************************
 
@@ -130,15 +148,39 @@ var uid = function() {
 
 var addTrack = function (name, artist, album) {
 
+  var newTrackId = uid();
+
+  library.tracks[newTrackId] = {}; // creates a new object for the new track
+
+  library.tracks[newTrackId].id = newTrackId;
+  library.tracks[newTrackId].name = name;
+  library.tracks[newTrackId].artist = artist;
+  library.tracks[newTrackId].album = album;
+
+console.log(library.tracks[newTrackId]);
+
 }
+
+addTrack('Live Forever', 'Oasis', 'Masterplan');
 
 
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
 
+  var newPlaylistId = uid();
+
+  library.playlists[newPlaylistId] = {};
+
+  library.playlists[newPlaylistId].id = newPlaylistId;
+  library.playlists[newPlaylistId].name = name;
+  library.playlists[newPlaylistId].tracks = [];
+
+console.log(library.playlists[newPlaylistId]);
+
 }
 
+addPlaylist('Running');
 
 // STRETCH:
 // given a query string string, prints a list of tracks
